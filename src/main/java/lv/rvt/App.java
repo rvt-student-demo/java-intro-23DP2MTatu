@@ -20,7 +20,6 @@ public class App
                 break;
             }
         }
-    System.out.println("Number of numbers: " + NumberNumber);
-    System.out.println("Sum of the numbers: " + Summa);
+    System.out.println("Average of the numbers: " + Summa/NumberNumber);
     }
  }
