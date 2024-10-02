@@ -7,13 +7,14 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
         System.out.println("How many times?");
-        int cik = Integer.valueOf(scanner.nextLine());
-        for(int i = 0;i < cik; i++) {
-            PrintText();
-        }
+        int number = Integer.valueOf(scanner.nextLine());
+        printUntilNumber(number);
+
 
     }
-    public static void PrintText() {
-        System.out.println("In a hole in the ground there lived a method");
+    public static void printUntilNumber(int cik) {
+        for(int i = 1; i <= cik; i++) {
+            System.out.println(i);
+        }
     }
 } 
