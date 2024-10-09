@@ -3,18 +3,15 @@ import java.util.*;
 
 public class App 
 {
-    public static void main(String[] args )
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("How many times?");
-        int number = Integer.valueOf(scanner.nextLine());
-        printUntilNumber(number);
-
-
-    }
-    public static void printUntilNumber(int cik) {
-        for(int i = 1; i <= cik; i++) {
-            System.out.println(i);
-        }
+    public static void main(String[] args) {
+        Stars.printStars(5);
+        Stars.printStars(3);
+        Stars.printStars(9);
+        System.out.println();
+        Stars.printSquare(4);
+        System.out.println();
+        Stars.printRectangle(17, 3);
+        System.out.println();
+        Stars.printTriangle(4);
     }
 } 
