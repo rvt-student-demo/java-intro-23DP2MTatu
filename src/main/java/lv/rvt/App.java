@@ -13,5 +13,8 @@ public class App
         Stars.printRectangle(17, 3);
         System.out.println();
         Stars.printTriangle(4);
+        Stars.printRightTriagle(4);
+        Stars.christmasTree(4);
+        Stars.christmasTree(10);
     }
 } 
