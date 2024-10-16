@@ -5,16 +5,20 @@ public class App
 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<String> nameList = new ArrayList<>();
-        Integer index = 0;
+        ArrayList<Integer> number = new ArrayList<>();
+        int index = 0;
+        int summa = 0;
         while (true) {
-            nameList.add(scanner.nextLine());
-            if(nameList.get(index) == ""){
+            number.add(scanner.nextInt());
+            if (number.get(index) == 0){
+                number.remove(index);
+                System.out.println(number);
+                System.out.println(number.get(1)+number.get(2));
+                System.out.println(summa);
                 break;
             }
+            summa = summa + number.get(index);
             index++;
         }
-        System.out.println(nameList.get(2));
-
     }
 } 
