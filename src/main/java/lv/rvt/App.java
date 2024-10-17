@@ -1,38 +1,67 @@
 package lv.rvt;
 import java.util.*;
 
-import javax.management.relation.Role;
-
 public class App 
 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
-        int win = 0;
         int score = 0;
-        System.out.print("I am thinking of a number from 1 to 10."
-            +"\nYou must guess what it is in three tries."
-            +"\nEnter a guess: ");
-        int number = rand.nextInt(10)+1;
-        for(int i = 4; i >= 0; i = i - 1) {
-            System.out.print("Enter a guess: ");
-            int userNumber = scanner.nextInt();
-            if(userNumber == number){
-                score = i;
-                win = 1;
-                break;
+        for(int round = 1; round <=10;round++){
+            int win = 0;
+            System.out.println("Round: "+round);
+            System.out.print("\nI am thinking of a number from 1 to 10."
+                        +"\nYou must guess what it is in three tries."
+                        +"\nEnter a guess: \n");
+            int number = rand.nextInt(10)+1;
+            for(int i = 0; i < 3;i++) {
+                int userNumber = scanner.nextInt();
+                int userNumberTemp = userNumber-number;
+                if(userNumberTemp < 0){
+                    userNumberTemp = userNumberTemp * -1;
+                }
+                if(userNumber == number){
+                    win = 1;
+                    System.out.println("RIGHT!");
+                    score++;
+                    break;
+                }
+                switch (userNumberTemp) {
+                    case 1:
+                        System.out.println("hot");
+                        break;
+                    case 2:
+                        System.out.println("warm");
+                        break;
+                    default:
+                        System.out.println("cold");
+                        break;
+                }
             }
-            score = i;
-            System.out.println("Too Low! Your score is now "+score);
-        }
 
         if(win == 1){
-            System.out.println("You WON the game!");
-            System.out.println("Your score is "+score);
+            System.out.println("You have won the game.");
         }
         else{
-            System.out.println("You lost.");
-            System.out.println("Your score is "+score);
+            System.out.println("The correct number was "+number+".");
+            System.out.println("You have lost the game.");
+        }
+        System.out.println("You have won "+score+ " out of "+round+" rounds.\n");
+        }
+        switch (score) {
+            case 8:
+                System.out.println("Your rating: advanced.");
+                break;
+            case 9:
+                System.out.println("Your rating: professionals.");
+                break;
+            case 10:
+                System.out.println("Your rating: hackers.");
+                break;
+    
+            default:
+                System.out.println("Your rating: amateur.");
+                break;
         }
     }
 } 
