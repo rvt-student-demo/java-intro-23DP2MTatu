@@ -11,10 +11,14 @@ public class PaymentCard {
        return "The card has a balance of "+ balance + " euros";
     }
     public void eatAffordably() {
-        balance -= 2.60;
+        if(balance > 2.60){
+            balance -= 2.60;    
+        }
     }
     
     public void eatHeartily() {
-        balance -= 4.60;
+        if(balance > 4.60){
+            balance -= 4.60;    
+        }
     }
 }
