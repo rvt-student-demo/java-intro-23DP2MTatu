@@ -5,7 +5,6 @@ public class Statistics {
     private int sum;
 
     public Statistics() {
-        // initialize the variable numberCount here
     }
 
     public void addNumber(int number) {
