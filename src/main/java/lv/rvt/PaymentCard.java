@@ -23,7 +23,9 @@ public class PaymentCard {
     }
 
     public void addMoney(double amount) {
-        balance += amount;
+        if(amount > 0){
+           balance += amount; 
+        }
         if(balance > 150) {
             balance = 150;
         }
