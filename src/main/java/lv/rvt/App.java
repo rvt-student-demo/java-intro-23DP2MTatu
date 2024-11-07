@@ -16,5 +16,7 @@ public class App
             statistics.addNumber(number);
         }
         System.out.println("Sum: " + statistics.sum());
+        System.out.println("Sum of even numbers: " + statistics.getSumEven());
+        System.out.println("Sum of odd numbers: " + statistics.getSumOdd());
     }
 } 
