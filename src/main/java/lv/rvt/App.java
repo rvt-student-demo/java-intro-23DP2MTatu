@@ -1,18 +1,19 @@
 package lv.rvt;
 import java.io.BufferedReader;
 import java.util.*;
-public class App 
-{
+public class App {
     public static void main(String[] args) {
-        PaymentCard petesCard = new PaymentCard(10);
+        PaymentTerminal unicafeExactum = new PaymentTerminal();
 
-        System.out.println("money " + petesCard.balance());
-        boolean wasSuccessful = petesCard.takeMoney(8);
-        System.out.println("successfully took: " + wasSuccessful);
-        System.out.println("money " + petesCard.balance());
+        double change = unicafeExactum.eatAffordably(10);
+        System.out.println("remaining change " + change);
 
-        wasSuccessful = petesCard.takeMoney(4);
-        System.out.println("successfully took: " + wasSuccessful);
-        System.out.println("money " + petesCard.balance());
+        change = unicafeExactum.eatAffordably(5);
+        System.out.println("remaining change " + change);
+
+        change = unicafeExactum.eatHeartily(4.3);
+        System.out.println("remaining change " + change);
+
+        System.out.println(unicafeExactum);
     }
 }
