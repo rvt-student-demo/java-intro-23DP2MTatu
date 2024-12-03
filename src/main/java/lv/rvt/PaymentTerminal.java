@@ -8,14 +8,13 @@ public class PaymentTerminal {
     public PaymentTerminal() {
         this.money = 1000;
     }
-
     public double eatAffordably(double payment) {
         payment = payment - 2.50;
         affordableMeals++;
         this.money += 2.50;
         if (payment < 0) {
-            payment = payment + 2.50;
-            affordableMeals = affordableMeals - 1;
+            payment += 2.50;
+            affordableMeals--;
             return payment;
         }
         return payment;
@@ -26,12 +25,32 @@ public class PaymentTerminal {
         heartyMeals++;
         this.money += 4.30;
         if (payment < 0) {
-            payment = payment + 4.30;
-            heartyMeals = heartyMeals - 1;
-            this.money = this.money - payment;
+            payment += 4.30;
+            heartyMeals--;
+            this.money -= payment;
             return payment;
         }
         return payment;
+    }
+
+    public boolean eatAffordably(PaymentCard card) {
+        double priceAffordableMeat = 2.50;
+        if(card.takeMoney(priceAffordableMeat) == true) {
+            card.takeMoney(priceAffordableMeat);
+            affordableMeals++;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean eatHeartily(PaymentCard card) {
+        double priceHeartyMeat = 4.30;
+        if(card.takeMoney(priceHeartyMeat) == true) {
+            card.takeMoney(priceHeartyMeat);
+            heartyMeals++;
+            return true;
+        }
+        return false;
     }
 
     public String toString() {
