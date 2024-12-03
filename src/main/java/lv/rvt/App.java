@@ -3,28 +3,16 @@ import java.io.BufferedReader;
 import java.util.*;
 public class App 
 {
-    public static void main(String[] args) throws Exception {
-        
-        String name = "";
-        int age = 0;
-        int weight = 0;
-        int height = 0;
+    public static void main(String[] args) {
+        PaymentCard petesCard = new PaymentCard(10);
 
-        Scanner scanner = new Scanner(System.in);
-        
-        ArrayList<Person> persons = PersonManager.getPersonList();
-        for (Person person : persons) {
-            System.out.println(person);
-        }
+        System.out.println("money " + petesCard.balance());
+        boolean wasSuccessful = petesCard.takeMoney(8);
+        System.out.println("successfully withdrew: " + wasSuccessful);
+        System.out.println("money " + petesCard.balance());
 
-        name = scanner.nextLine();
-        age = scanner.nextInt();
-        weight = scanner.nextInt();
-        height = scanner.nextInt();
-
-        Person person = new Person(name, age, weight, height);
-
-        PersonManager.addPerson(person);
-
+        wasSuccessful = petesCard.takeMoney(4);
+        System.out.println("successfully withdrew: " + wasSuccessful);
+        System.out.println("money " + petesCard.balance());
     }
 }
