@@ -36,7 +36,6 @@ public class PaymentTerminal {
     public boolean eatAffordably(PaymentCard card) {
         double priceAffordableMeat = 2.50;
         if(card.takeMoney(priceAffordableMeat) == true) {
-            card.takeMoney(priceAffordableMeat);
             affordableMeals++;
             return true;
         }
@@ -46,11 +45,15 @@ public class PaymentTerminal {
     public boolean eatHeartily(PaymentCard card) {
         double priceHeartyMeat = 4.30;
         if(card.takeMoney(priceHeartyMeat) == true) {
-            card.takeMoney(priceHeartyMeat);
             heartyMeals++;
             return true;
         }
         return false;
+    }
+
+    public void addMoneyToCard(PaymentCard card, double sum) {
+        money += sum;
+        card.addMoney(sum);
     }
 
     public String toString() {
