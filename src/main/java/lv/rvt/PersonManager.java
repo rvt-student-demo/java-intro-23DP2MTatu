@@ -25,6 +25,16 @@ public class PersonManager {
         return personList;
     }
 
+    public static void showPersonList() throws Exception{
+        ArrayList<Person> personList = new ArrayList<>();
+        System.out.println("name, age, weight, height");
+        personList = PersonManager.getPersonList();
+
+        for (int i = 0; i < personList.size(); i++) {
+            System.out.println(personList.get(i));
+        }
+    }
+
     public static void addPerson(Person person) throws Exception {
         BufferedWriter writer = 
         Helper.getWriter("persons.csv", StandardOpenOption.APPEND);
@@ -32,5 +42,12 @@ public class PersonManager {
         writer.write(person.toCsvRow());
         writer.newLine();
         writer.close();
+    }
+
+    public static void addPerson(String line) throws Exception{
+        String[] part = line.split(" ");
+        Person person = new Person(part[0],Integer.parseInt(part[1]),Integer.parseInt(part[2]),Integer.parseInt(part[3]));
+        addPerson(person);
+        System.out.println("Person was added to the list");
     }
 }
