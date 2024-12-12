@@ -19,7 +19,7 @@ public class PersonManager {
         while ((Line = reader.readLine()) != null) {
             String[] parts = Line.split(", ");
             // System.out.println(Arrays.toString(parts));
-            Person person = new Person(parts[0],Integer.parseInt(parts[1]), Integer.parseInt(parts[2]), Integer.parseInt(parts[3]));
+            Person person = new Person(parts[0],SimpleDate.parseInt(parts[1]), Integer.parseInt(parts[2]), Integer.parseInt(parts[3]));
             personList.add(person);
         }
         return personList;
@@ -30,8 +30,8 @@ public class PersonManager {
         System.out.println("name, age, weight, height");
         personList = PersonManager.getPersonList();
 
-        for (int i = 0; i < personList.size(); i++) {
-            System.out.println(personList.get(i));
+        for (Person person : personList) {
+            System.out.println(person);
         }
     }
 
@@ -46,7 +46,7 @@ public class PersonManager {
 
     public static void addPerson(String line) throws Exception{
         String[] part = line.split(" ");
-        Person person = new Person(part[0],Integer.parseInt(part[1]),Integer.parseInt(part[2]),Integer.parseInt(part[3]));
+        Person person = new Person(part[0],SimpleDate.parseInt(part[1]),Integer.parseInt(part[2]),Integer.parseInt(part[3]));
         addPerson(person);
         System.out.println("Person was added to the list");
     }

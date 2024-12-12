@@ -2,46 +2,42 @@ package lv.rvt;
 
 public class Person {
     private String name;
-    private int age;
     private int weight;
     private int height;
+    private SimpleDate date;
 
-    public Person(String initialName,int age,int weight,int height) {
-        this.age = age;
+    public Person(String name, SimpleDate date, int weight, int height) {
+        this.name = name;
+        this.date = date;
         this.weight = weight;
         this.height = height;
-        this.name = initialName;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+    public boolean equals(Object compared) {
+        // if the variables are located in the same position, they are equal
+        if (this == compared) {
+            return true;
+        }
 
-    public void setHeight(int newHeight) {
-        this.height = newHeight;
-    }
+        // if the compared object is not of type Person, the objects are not equal
+        if (!(compared instanceof Person comparedPerson)) {
+            return false;
+        }
 
-    public void setWeight(int newWeight) {
-        this.weight = newWeight;
-    }
+        // if the values of the object variables are equal, the objects are equal
+        return this.name.equals(comparedPerson.name) &&
+                this.date == comparedPerson.date &&
+                this.weight == comparedPerson.weight &&
+                this.height == comparedPerson.height;
 
-    public double bodyMassIndex() {
-        double heigthPerHundred = this.height / 100.0;
-        return this.weight / (heigthPerHundred * heigthPerHundred);
-    }
-
-    public String getName() {
-        return this.name;
-    }
-    public int getAge() {
-        return this.age;
+        // otherwise the objects are not equal
     }
 
     public String toString() {
-        return this.name +" "+ this.age +" "+ this.weight +" "+ this.height;
+        return this.name +" "+ this.date +" "+ this.weight +" "+ this.height;
     }
-    
+
     public String toCsvRow() {
-        return this.name +", "+ this.age +", "+ this.weight +", "+ this.height;
+        return this.name +", "+ this.date +", "+ this.weight +", "+ this.height;
     }
 }
