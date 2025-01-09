@@ -3,9 +3,9 @@ package lv.rvt;
 import java.lang.reflect.Constructor;
 
 public class Box {
-    public double width;
-    public double height;
-    public double length;
+    private double width;
+    private double height;
+    private double length;
 
     public Box(double width, double height, double length) {
         this.width = width;
@@ -17,7 +17,19 @@ public class Box {
         return width * height * length;
     }
 
-    public double area() {
-        return 2* (width * height + width * length + length * height);
+    public double area(){ 
+        return 2 * faceArea() + 2 * topArea() + 2 * sideArea() ;              
+    }
+
+    private double faceArea() {
+        return height * width;
+    }
+    
+    private double topArea() {
+        return width * length;
+    }
+
+    private double sideArea() {
+        return height * length;
     }
 }
