@@ -17,6 +17,10 @@ public class Box {
         this.length = length;
     }
 
+    public Box biggerBox( Box oldBox ) {
+        return new Box( 1.25*oldBox.length(), 1.25*oldBox.width(), 1.25*oldBox.height() );
+    }
+
     public Box ( double side ) {
         width = height = length = side;
     }
