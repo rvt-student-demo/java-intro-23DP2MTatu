@@ -1,16 +1,24 @@
 package lv.rvt;
 
-import java.lang.reflect.Constructor;
-
 public class Box {
     private double width;
     private double height;
     private double length;
 
+    public Box(Box oldBox) {
+        width = oldBox.width();
+        height = oldBox.height();
+        length = oldBox.length();
+    }
+
     public Box(double width, double height, double length) {
         this.width = width;
         this.height = height;
         this.length = length;
+    }
+
+    public Box ( double side ) {
+        width = height = length = side;
     }
 
     public double volume() {
@@ -31,5 +39,17 @@ public class Box {
 
     private double sideArea() {
         return height * length;
+    }
+
+    public double length() {
+        return length;
+    }
+
+    public double height() {
+        return height;
+    }
+
+    public double width() {
+        return width;
     }
 }
