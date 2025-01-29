@@ -12,5 +12,8 @@ public class ProductWarehouse extends Warehouse {
     public String getName() {
         return productName;
     }
-
+    
+    public String toString() {
+        return productName + ": balance = " + getBalance() + ", space left " + howMuchSpaceLeft();
+    }
 }
