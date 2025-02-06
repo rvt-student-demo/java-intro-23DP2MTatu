@@ -13,6 +13,11 @@ public class Book implements Packable{
     }
 
     @Override
+    public double weight() {
+        return bookWeight;
+    }
+
+    @Override
     public String toString() {
         return author + ": " + bookName;
     }

@@ -13,6 +13,11 @@ public class CD implements Packable{
     }
 
     @Override
+    public double weight() {
+        return 0.1;
+    }
+
+    @Override
     public String toString() {
         return artist + ": " + cdName + " (" + year + ")";
     }
