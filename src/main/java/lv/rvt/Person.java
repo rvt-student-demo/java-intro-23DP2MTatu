@@ -1,15 +1,34 @@
 package lv.rvt;
 
+
 public class Person {
     private String name;
+    private int age;
     private String adress;
-    public Person(String name, String adress) {
-        this.name = name;
-        this.adress = adress;
+
+    public Person(String initialName,int age, String liveAdress) {
+        this.age = age;
+        this.adress = liveAdress;
+        this.name = initialName;
     }
 
-    @Override
     public String toString() {
-        return name + "\n" + "  " + adress;
+        return this.name +" "+ this.age +" "+ this.adress;
+    }
+
+    public String toCsvRow() {
+        return this.name +", "+ this.age +", "+ this.adress;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public String getAdress() {
+        return this.adress;
     }
 }

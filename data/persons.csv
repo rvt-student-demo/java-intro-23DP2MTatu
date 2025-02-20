@@ -1,13 +1,5 @@
-name, age, weight, height
-Tom, 17, 100, 170
-Jane, 23, 200, 145
-John, 21, 150, 188
-Steave, 30, 120, 175
-Jerry, 40, 70, 177
-John Doe, 28, 70, 175
-Abba, 1, 1, 1
-Maks, 12, 100, 120
-mamma, 99, 999, 50
-Marks, 2, 5, 100
-Mark, 12, 120, 100
-Dam, 28, 100, 180
+name, age, adress
+mark, 1, a
+andrejs, 2, b
+max, 3, c
+kirill, 4, d
