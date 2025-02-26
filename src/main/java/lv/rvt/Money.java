@@ -31,4 +31,8 @@ public class Money {
         // return the new Money object
         return newMoney;
     }
+
+    public boolean lessThan(Money additon) {
+        return (additon.euros() > euros());
+    }
 }
