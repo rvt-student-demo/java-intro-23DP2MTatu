@@ -27,9 +27,14 @@ public class Money {
     }
 
     public Money plus(Money addition) {
-        Money newMoney = new Money(addition.euros() + euros(),addition.cents() + cents()); // create a new Money object that has the correct worth
-        // return the new Money object
-        return newMoney;
+        if (addition.cents() + cents() > 99) {
+            Money newMoney = new Money(addition.euros() + euros() +1,addition.cents() + cents() -100);
+            return newMoney;
+        }
+        else {
+            Money newMoney = new Money(addition.euros() + euros(),addition.cents() + cents()); // create a new Money object that has the correct worth
+            return newMoney;
+        }
     }
 
     public boolean lessThan(Money additon) {
@@ -37,7 +42,7 @@ public class Money {
     }
 
     public Money minus(Money addition) {
-        if (addition.euros() > euros()) {
+        if (addition.euros() >= euros()) {
             Money newMoney = new Money(0, 0);
             return newMoney;
         }
