@@ -35,4 +35,19 @@ public class Money {
     public boolean lessThan(Money additon) {
         return (additon.euros() > euros());
     }
+
+    public Money minus(Money addition) {
+        if (addition.euros() > euros()) {
+            Money newMoney = new Money(0, 0);
+            return newMoney;
+        }
+        else if (addition.cents > cents()) {
+            Money newMoney = new Money(euros()- 1 - addition.euros(), cents() - addition.cents + 100);
+            return newMoney;
+        }
+        else {
+            Money newMoney = new Money(euros() - addition.euros(), cents() - addition.cents);
+            return newMoney;
+        }
+    }
 }
